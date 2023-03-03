@@ -4,6 +4,7 @@ var { src, dest, series } = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	webp = require('gulp-webp'),
 	del = require('del'),
+	rename = require('gulp-rename'),
 	tinypng = require('./index'),
 	sigs = process.env.TINYPNG_SIGS ? true : false;
 
@@ -13,6 +14,7 @@ const buildFolder = './build';
 
 const paths = {
 	buildImgFolder: `${buildFolder}/min`,
+	buildImg2xFolder: `${buildFolder}/retina`,
 	buildWebpFolder: `${buildFolder}/webp`,
 };
 
@@ -52,6 +54,17 @@ const webpImages = () => {
 		.pipe(dest(paths.buildWebpFolder));
 };
 
+const retinaImages = () => {
+	return src([`${srcFolder}/**/**.{jpg,jpeg,png}`])
+		.pipe(
+			rename(function (path) {
+				path.basename = path.basename + '_2x';
+				return path.dirname + path.basename;
+			})
+		)
+		.pipe(dest(paths.buildImg2xFolder));
+};
+
 process.env.NODE_ENV = 'test';
 
-exports.build = series(clean, tiny, imagesSvg, webpImages);
+exports.build = series(clean, tiny, imagesSvg, webpImages, retinaImages);
