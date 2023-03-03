@@ -1,0 +1,4 @@
+.DS_Store
+.sigs
+node_modules/
+build/

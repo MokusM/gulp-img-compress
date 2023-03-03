@@ -1,0 +1,50 @@
+{
+  "name": "gulp-tinypng-compress",
+  "version": "1.2.5",
+  "description": "TinyPNG API wrapper for compressing PNG & JPG images",
+  "main": "index.js",
+  "repository": "stnvh/gulp-tinypng-compress",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Stan Hutcheon",
+    "email": "stanutcheon@me.com",
+    "url": "https://github.com/stnvh"
+  },
+  "keywords": [
+    "gulpplugin",
+    "tinypng",
+    "image",
+    "img",
+    "picture",
+    "photo",
+    "minify",
+    "minifier",
+    "compress",
+    "png"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "request": "2.x",
+    "through2": "2.x",
+    "through2-concurrent": "1.x",
+    "minimatch": "3.x",
+    "vinyl": "2.x",
+    "plugin-error": "1.x",
+    "minimist": "1.x",
+    "fancy-log": "1.x",
+    "ansi-colors": "3.x"
+  },
+  "devDependencies": {
+    "chai": "4.x",
+    "del": "^6.0.0",
+    "gulp": "4.x",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-webp": "^4.0.1",
+    "mocha": "6.x"
+  }
+}
